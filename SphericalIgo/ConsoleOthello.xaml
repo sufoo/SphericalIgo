@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="SphericalIgo.ConsoleOthello"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:lib="clr-namespace:SphericalIgo"
+             mc:Ignorable="d" 
+             d:DesignHeight="90" d:DesignWidth="600">
+    <Grid>
+        <Grid.Resources>
+            <lib:EnumMatchToBooleanConverter x:Key="enumConverter" />
+        </Grid.Resources>
+        <Button Content="Setting" Height="23" HorizontalAlignment="Right" Margin="6,6,80,0" Name="button1" VerticalAlignment="Bottom" Width="75" Click="buttonSetting_Click" />
+        <Button Content="Help" Height="23" HorizontalAlignment="Right" Margin="6,6,0,0" Name="button2" VerticalAlignment="Bottom" Width="75" Click="buttonHelp_Click" />
+        <Label Content="[Status]" Height="28" HorizontalAlignment="Left" Margin="260,0,0,50" Name="label_status" VerticalAlignment="Bottom" Width="300" />
+        <Label Content="[Coordinates]" Height="28" HorizontalAlignment="Left" Margin="260,0,0,30" Name="label_coord" VerticalAlignment="Bottom" Width="300" />
+        <RadioButton Content="Put black piece" Height="16" HorizontalAlignment="Left" Margin="12,0,0,57" GroupName="Options1" VerticalAlignment="Bottom" 
+                             IsChecked="{Binding Path=CurrentOption, Mode=TwoWay, Converter={StaticResource enumConverter}, ConverterParameter=OP_PUT_PIECE_BLACK}"/>
+        <RadioButton Content="Put white piece" Height="16" HorizontalAlignment="Left" Margin="12,0,0,39" GroupName="Options1" VerticalAlignment="Bottom" 
+                             IsChecked="{Binding Path=CurrentOption, Mode=TwoWay, Converter={StaticResource enumConverter}, ConverterParameter=OP_PUT_PIECE_WHITE}"/>
+        <RadioButton Content="Remove piece" Height="16" HorizontalAlignment="Left" Margin="131,0,0,57" GroupName="Options1" VerticalAlignment="Bottom" 
+                             IsChecked="{Binding Path=CurrentOption, Mode=TwoWay, Converter={StaticResource enumConverter}, ConverterParameter=OP_REMOVE_PIECE}"/>
+        <RadioButton Content="Flip piece" Height="16" HorizontalAlignment="Left" Margin="131,0,0,39" GroupName="Options1" VerticalAlignment="Bottom" 
+                             IsChecked="{Binding Path=CurrentOption, Mode=TwoWay, Converter={StaticResource enumConverter}, ConverterParameter=OP_FLIP_PIECE}"/>
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,40 @@
+﻿<Window x:Class="SphericalIgo.Setting"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Setting" Height="343" Width="300" ResizeMode="NoResize">
+    <Window.Resources>
+        <x:Array x:Key="GameKindItems" Type="{x:Type ComboBoxItem}">
+            <ComboBoxItem Tag="1">Othello</ComboBoxItem>
+            <ComboBoxItem Tag="2">Igo</ComboBoxItem>
+        </x:Array>
+        <x:Array x:Key="ResolutionItems" Type="{x:Type ComboBoxItem}">
+            <ComboBoxItem Tag="1">   48 (HEALPix-2)</ComboBoxItem>
+            <ComboBoxItem Tag="2">  192 (HEALPix-4)</ComboBoxItem>
+            <ComboBoxItem Tag="3">  768 (HEALPix-8)</ComboBoxItem>
+            <ComboBoxItem Tag="4"> 3072 (HEALPix-16)</ComboBoxItem>
+            <ComboBoxItem Tag="5">12288 (HEALPix-32)</ComboBoxItem>
+            <ComboBoxItem Tag="6">49152 (HEALPix-64)</ComboBoxItem>           
+        </x:Array>
+        <x:Array x:Key="MeshQualityItems" Type="{x:Type ComboBoxItem}">
+            <ComboBoxItem Tag="1">Low</ComboBoxItem>
+            <ComboBoxItem Tag="2">Medium</ComboBoxItem>
+            <ComboBoxItem Tag="3">High</ComboBoxItem>
+        </x:Array>
+    </Window.Resources>
+    <Grid>
+        <Button Content="OK" Height="23" HorizontalAlignment="Left" Margin="103,264,0,0" Name="button1" VerticalAlignment="Top" Width="75" IsDefault="True" Click="ButtonOkClicked"/>
+        <Button Content="CANCEL" Height="23" HorizontalAlignment="Left" Margin="191,264,0,0" Name="button2" VerticalAlignment="Top" Width="75" IsCancel="True" />
+        <Label Content="Game kind" Height="28" HorizontalAlignment="Left" Margin="12,12,0,0" Name="label1" VerticalAlignment="Top" />
+        <ComboBox Height="24" HorizontalAlignment="Left" Margin="12,37,0,0" Name="comboBoxKind" VerticalAlignment="Top" Width="166" ItemsSource="{Binding Source={StaticResource GameKindItems}}" SelectedValuePath="Tag" SelectionChanged="comboBoxKind_SelectionChanged" />
+        <Label Content="Resolution of grid" Height="28" HorizontalAlignment="Left" Margin="12,67,0,0" Name="label3" VerticalAlignment="Top" />
+        <ComboBox Height="24" HorizontalAlignment="Left" Margin="12,92,0,0" Name="comboBoxResolution" VerticalAlignment="Top" Width="166" ItemsSource="{Binding Source={StaticResource ResolutionItems}}" SelectedValuePath="Tag"/>
+        <Label Content="Mesh quality" Height="28" HorizontalAlignment="Left" Margin="12,122,0,0" Name="label2" VerticalAlignment="Top" />
+        <ComboBox Height="24" HorizontalAlignment="Left" Margin="12,148,0,0" Name="comboBoxMeshQuality" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource MeshQualityItems}}" SelectedValuePath="Tag" Width="166" />
+        <Label Content="Sphere color" Height="28" HorizontalAlignment="Left" Margin="12,190,0,0" Name="label5" VerticalAlignment="Top" />
+        <Rectangle Height="23" HorizontalAlignment="Left" Margin="144,190,0,0" Name="ColorSampleFore" Stroke="{x:Null}" VerticalAlignment="Top" Width="48" Fill="Black"/>
+        <Button Content="change" Height="23" HorizontalAlignment="Left" Margin="191,190,0,0" Name="button_forecolor" VerticalAlignment="Top" Width="75" Click="ButtonColorChangeClicked"/>
+        <Label Content="Background color" Height="28" HorizontalAlignment="Left" Margin="12,224,0,0" Name="label4" VerticalAlignment="Top"/>
+        <Button Content="change" Height="23" HorizontalAlignment="Left" Margin="191,226,0,0" Name="button_backcolor" VerticalAlignment="Top" Width="75" Click="ButtonColorChangeClicked"/>
+        <Rectangle Height="23" HorizontalAlignment="Left" Margin="144,226,0,0" Name="ColorSampleBack" Stroke="{x:Null}" VerticalAlignment="Top" Width="48" Fill="Black"/>
+    </Grid>
+</Window>

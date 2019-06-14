@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="SphericalIgo.ConsoleIgo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:lib="clr-namespace:SphericalIgo"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="600">
+    <Grid >
+        <Grid.Resources>
+            <lib:EnumMatchToBooleanConverter x:Key="enumConverter" />
+        </Grid.Resources>
+        <Button Content="Setting" Height="23" HorizontalAlignment="Right" Margin="6,6,80,0" Name="button1" VerticalAlignment="Bottom" Width="75" Click="buttonSetting_Click" />
+        <Button Content="Help" Height="23" HorizontalAlignment="Right" Margin="6,6,0,0" Name="button2" VerticalAlignment="Bottom" Width="75" Click="buttonHelp_Click" />
+        <Label Content="[Status]" Height="28" HorizontalAlignment="Left" Margin="276,0,0,66" Name="label_status" VerticalAlignment="Bottom" Width="300" />
+        <Label Content="[Coordinates]" Height="28" HorizontalAlignment="Left" Margin="276,0,0,45" Name="label_coord" VerticalAlignment="Bottom" Width="300" />
+        <Label Content="[Captured]" Height="28" HorizontalAlignment="Left" Margin="276,0,0,23" Name="label_captured" VerticalAlignment="Bottom" Width="140"/>
+        <Label Content="0" Height="28" HorizontalAlignment="Left" Margin="310,0,0,0" Name="label_captured_black_num" VerticalAlignment="Bottom" Width="30" />
+        <Label Content="0" Height="28" HorizontalAlignment="Left" Margin="370,0,0,0" Name="label_captured_white_num" VerticalAlignment="Bottom" Width="30" />
+        <Ellipse Height="12" HorizontalAlignment="Left" Margin="290,0,0,8" Name="ellipse_black" Fill="Black" Stroke="Black" VerticalAlignment="Bottom" Width="12" MouseDown="OnCapturedMouseDown"/>
+        <Ellipse Height="12" HorizontalAlignment="Left" Margin="350,0,0,8" Name="ellipse_white" Fill="White" Stroke="Black" VerticalAlignment="Bottom" Width="12" MouseDown="OnCapturedMouseDown"/>
+        <RadioButton Content="Put black piece" Height="16" HorizontalAlignment="Left" Margin="12,0,0,74" GroupName="Options1" VerticalAlignment="Bottom" 
+                             IsChecked="{Binding Path=CurrentOption, Mode=TwoWay, Converter={StaticResource enumConverter}, ConverterParameter=OP_PUT_PIECE_BLACK}"/>
+        <RadioButton Content="Put white piece" Height="16" HorizontalAlignment="Left" Margin="12,0,0,52" GroupName="Options1" VerticalAlignment="Bottom" 
+                             IsChecked="{Binding Path=CurrentOption, Mode=TwoWay, Converter={StaticResource enumConverter}, ConverterParameter=OP_PUT_PIECE_WHITE}"/>
+        <RadioButton Content="Remove piece" Height="16" HorizontalAlignment="Left" Margin="12,0,0,30" GroupName="Options1" VerticalAlignment="Bottom" 
+                             IsChecked="{Binding Path=CurrentOption, Mode=TwoWay, Converter={StaticResource enumConverter}, ConverterParameter=OP_REMOVE_PIECE}"/>
+        <RadioButton Content="Capture piece" Height="16" HorizontalAlignment="Left" Margin="12,0,0,8" GroupName="Options1" VerticalAlignment="Bottom" 
+                             IsChecked="{Binding Path=CurrentOption, Mode=TwoWay, Converter={StaticResource enumConverter}, ConverterParameter=OP_GET_PIECE}"/>
+        <RadioButton Content="Put black territory" Height="16" HorizontalAlignment="Left" Margin="127,0,0,74" GroupName="Options1" VerticalAlignment="Bottom" 
+                             IsChecked="{Binding Path=CurrentOption, Mode=TwoWay, Converter={StaticResource enumConverter}, ConverterParameter=OP_PUT_TERRITORY_BLACK}"/>
+        <RadioButton Content="Put white territory" Height="16" HorizontalAlignment="Left" Margin="127,0,0,52" GroupName="Options1" VerticalAlignment="Bottom" 
+                             IsChecked="{Binding Path=CurrentOption, Mode=TwoWay, Converter={StaticResource enumConverter}, ConverterParameter=OP_PUT_TERRITORY_WHITE}"/>
+        <RadioButton Content="Remove territory" Height="16" HorizontalAlignment="Left" Margin="127,0,0,30" GroupName="Options1" VerticalAlignment="Bottom" 
+                             IsChecked="{Binding Path=CurrentOption, Mode=TwoWay, Converter={StaticResource enumConverter}, ConverterParameter=OP_REMOVE_TERRITORY}"/>
+
+    </Grid>
+</UserControl>
